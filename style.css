@@ -1,0 +1,23 @@
+.danhsachdanhmuc{
+    text-decoration: none;
+    margin-left: 50px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #ccc;
+    margin-top:50px;
+    
+}
+
+td .exec{
+   
+    padding: 5px 7px;
+    color: white;
+    font-size: 14px;
+    background-color: black;
+    border-radius: 50px;
+}
+
+.ip {
+    margin-bottom: 20px;
+}
