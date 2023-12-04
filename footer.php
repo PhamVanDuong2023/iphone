@@ -1,80 +1,23 @@
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-black text-muted">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-   
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-		  <h6 class="text-uppercase fw-bold mb-4">
-            Vị trí
-          </h6>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.635517237349!2d105.76473817479565!3d21.00724268851816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345357829b54d7%3A0x43d94149ff1824a9!2zQ-G7lW5nIEzDoG5nIFBow7ogxJDDtCAy!5e0!3m2!1svi!2s!4v1697555850510!5m2!1svi!2s"  height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="footer">
+            <div>
+                <img src="../images/logo.jpg" alt="" height="200px" width="300px">
+                <img src="../images/icon.jpg" alt="" height="50px" width="130px" style="margin-left: 40px;">
+            </div>
+            <div>
+                <h4>Liên hệ</h4>
+                <p>Địa chỉ: Ngõ 1 Văn Tiến Dũng, Phúc Diễn, Bắc Từ Liêm, Hà Nội</p>
+                <p>Điện thoại: 0122345667</p>
+                <p>Email: ecomarket@gmail.com</p>
+            </div>
+            <div>
+                <h4>Facebook</h4>
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100091199442752&tabs=timeline&width=200&height=250&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="200" height="250" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+            <div>
+                <h4>Youtube</h4>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/bgkyhSOlcSc?si=mRCZFJ4jrRA548Cp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
         </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Sản phẩm
-          </h6>
-          <p>
-		  	<a class="nav-link" href="/duanmau/controller/web/index.php?action=sanphamhot&&page=1&&maxPageItem=8&&sortBy=desc&&sortName=luotxem">Sản phẩm hot</a>
-          </p>
-		  	<?php
-            foreach ($listdanhmuc as $danhmuc) {
-			?>
-                <p><a class="nav-link"  href="/duanmau/controller/web/index.php?action=danhmucsanpham&&page=1&&maxPageItem=8&&sortBy=desc&&sortName=sanpham_id&&danhmuc=<?php echo $danhmuc['danhmuc_id'] ?>"><?php echo $danhmuc['tendanhmuc'] ?></a></p>
-            <?php
-                }
-            ?>
-          
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Liên hệ</h6>
-          <p><i class="fas fa-home me-3"></i> Số 10, đường Trịnh Văn Bô, Nam Từ Liêm, Hà Nội </p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            duongpvph31963@fpt.edu.vn
-          </p>
-          <p><i class="fas fa-phone me-3"></i> 0988672894</p>
-        </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
     </div>
-  </section>
-  <!-- Section: Links  -->
-
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-     Nhóm 8 _ Dự Án 1
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
 </body>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Core theme JS-->
-	<script src="../../template/user/js/scripts.js"></script>
 </html>
