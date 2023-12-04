@@ -1,83 +1,119 @@
-<section class="noidung">
-            <div class="nd-left">
-                <div class="box">
-                    <div class="box-title" style="margin-right: 20px; margin-top: 10px;">
-                        CHI TIẾT SẢN PHẨM
-                    </div>
-                    <div class="box-content1">
-                        <?php 
-                        extract($onesp);
-                        ?>
-                        <h1 style="color: red; text-align:center"><?=$name?></h1>
-                    </div>
-                    <div class="box-content1">
-                        <?php 
-                        extract($onesp);
-                        echo '<img src="../images/'.$img.'" alt="" width="820px" height="700px">';
-                        ?>
-                       <div style=" color: red;">
-                        <h2>Giá:</h2>
-                            <?php
-                            echo $price;
-                            ?>
-                       </div>
-                        <h2>Mô tả</h2>
-                        <?php
-                        echo $mota;
-                        ?>
-                        <div class="title1">
-                            <form action="index.php?act=giohang" method="post">
-                                <input type="hidden" name="id" value="<?=$id?>">
-                                <input type="hidden" name="name" value="<?=$name?>">
-                                <input type="hidden" name="img" value="<?=$img?>">
-                                <input type="hidden" name="price" value="<?=$price?>">
-                                <a href=""><input type="submit" value="Thêm vào giỏ hàng" class="gh1" name="themvaogh"></a>
-                                <button><a href="">Mua ngay</a></button>
-                            </form>    
-                        </div>
-                        
-                    </div>
-                </div>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                <script>
-                    $(document).ready(function(){
-                            $("#binhluan").load("chitietsp/binhluanform.php", {idpro: <?=$id?>});
-                    });
-                </script>
-                <div class="box" id="binhluan" >
-                    
-                </div>
-                <div class="box">
-                    <div class="box-title" style="margin-right: 20px; margin-top: 10px;">SẢN PHẨM CÙNG LOẠI</div>
-                    <div class="box-content1">
-                        <div class="sp">
-                            
-                                <?php
-                                foreach ($sp_cungloai as $spcl){
-                                    extract($spcl);
-                                    $link_sp="index.php?act=chitiet&id=".$id;
-                                    echo '<div class="sp-item">
-                                    <img src="../images/'.$img.'" alt="" id="anh">
-                                    <p><a href="'.$link_sp.'">'.$name.'</a></p>
-                                    <p>'.$price.'</p>
-                                    <div class="title">
-                                        <form action="index.php?act=giohang" method="post">
-                                            <input type="hidden" name="id" value="'.$id.'">
-                                            <input type="hidden" name="name" value="'.$name.'">
-                                            <input type="hidden" name="img" value="'.$img.'">
-                                            <input type="hidden" name="price" value="'.$price.'">
-                                            <a href=""><input type="submit" value="Thêm vào giỏ hàng" class="gh" name="themvaogh"></a>
-                                            <button><a href="'.$link_sp.'">Xem thêm</a></button>
-                                        </form>    
-                                    </div>
-                                </div>';
-                                }
-                                ?>
-                                
-                            </div>
-                        </div>
-                    </div>
-                  </div>
+<?php
+session_start();
+ob_start();
+$absolute_path = $_SERVER['DOCUMENT_ROOT'] . "/duanmau";
+include $absolute_path . "/model/DAO/pdo.php";
+
+include $absolute_path . "/controller/admin/danhmuc/list.php";
+require $absolute_path . "/common/web/header.php";
+if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+
+
+
+    if ($action == 'thaydoimatkhau') {
+        if (isset($_SESSION['nguoidung']) && $_SESSION['nguoidung']['code'] == "USER") {
+            include $absolute_path . "/view/thaydoimatkhau.php";
+        } else {
+            include $absolute_path . "/view/login.php";
+        }
+    }
+
+    if ($action == 'thaydoithongtin') {
+        if (isset($_SESSION['nguoidung']) && $_SESSION['nguoidung']['code'] == "USER") {
+            include $absolute_path . "/controller/admin/taikhoan/findone.php";
+            include $absolute_path . "/view/thaydoithongtin.php";
+        } else {
+            include $absolute_path . "/view/login.php";
+        }
+    }
+    if ($action == 'giohang') {
+        if (isset($_SESSION['nguoidung']) && $_SESSION['nguoidung']['code'] == "USER") {
+            include $absolute_path . "/controller/admin/giohang/findByUser.php";
+            include $absolute_path . "/view/web/giohang.php";
+        } else {
+            include $absolute_path . "/view/login.php";
+        }
+    }
+    if ($action == 'donhang') {
+        if (isset($_SESSION['nguoidung']) && $_SESSION['nguoidung']['code'] == "USER") {
+            // include $absolute_path . "/controller/admin/giohang/findByUser.php";
+            include $absolute_path . "/controller/admin/sanpham/findone.php";
+            include $absolute_path . "/controller/admin/taikhoan/findone.php";
+
+            include $absolute_path . "/view/web/donhang.php";
+        } else {
+            include $absolute_path . "/view/login.php";
+        }
+    }
+    if ($action == 'myOrder') {
+        if (isset($_SESSION['nguoidung']) && $_SESSION['nguoidung']['code'] == "USER") {
+            include $absolute_path . "/controller/admin/chitietdonhang/listbyuser.php";
+            include $absolute_path . "/view/web/quanlidonhang.php";
+        } else {
+            include $absolute_path . "/view/login.php";
+        }
+    }
+
+
+    switch ($action) {
+        case 'sanphamhot':
+            include $absolute_path . "/controller/admin/sanpham/list.php";
+            include $absolute_path . "/view/web/sanphamhot.php";
+            break;
+        case 'danhmucsanpham':
+            include $absolute_path . "/controller/admin/sanpham/findbydanhmuc.php";
+            include $absolute_path . "/view/web/danhmuc.php";
+            break;
+        case 'chitietsanpham':
+            include $absolute_path . "/controller/admin/sanpham/chitietsanpham.php";
+            include $absolute_path . "/controller/admin/danhgia/list.php";
+            include $absolute_path . "/view/web/chitietsanpham.php";
+            break;
+        case 'tatcasanpham':
+            include $absolute_path . "/controller/admin/sanpham/list.php";
+            include $absolute_path . "/view/web/tatcasanpham.php";
+
+
+            break;
+        case 'phantrang':
+            include $absolute_path . "/controller/admin/sanpham/list.php";
+            include $absolute_path . "/controller/admin/sanpham/findTopProduct.php";
+            include $absolute_path . "/view/web/home.php";
+
+            break;
+        case 'logout':
+            include $absolute_path . "/controller/logout.php";
+
+            break;
+        case 'signin':
+
+            include $absolute_path . "/view/signin.php";
+            break;
+        case 'login':
+            include $absolute_path . "/view/login.php";
+            break;
+        case 'sanphamtimkiem':
             
+            include $absolute_path . "/controller/admin/sanpham/findBySearch.php";
+            include $absolute_path . "/view/web/timkiemsanpham.php";
+            break;
+        case 'thanhcong':
             
-            
+            include $absolute_path . "/view/web/thanhtoanthanhcong.php";
+            break;    
+    }
+} else {
+    $_GET['page'] = 1;
+    $_GET['maxPageItem'] = 8;
+    $_GET['sortName'] = 'sanpham_id';
+    $_GET['sortBy'] = 'desc';
+    include $absolute_path . "/controller/admin/sanpham/list.php";
+    include $absolute_path . "/controller/admin/sanpham/findTopProduct.php";
+    include $absolute_path . "/view/web/home.php";
+}
+
+
+include $absolute_path . "/common/web/footer.php";
+ob_end_flush();
+?>
