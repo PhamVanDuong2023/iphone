@@ -1,0 +1,129 @@
+.container{
+    margin: 0px auto;
+    font-family: 'Roboto', sans-serif;
+    width: 1500px !important;
+}
+.logo{
+    height: 100px;
+    background-color: rgb(248, 61, 61);
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.logo >img{
+    margin-right: 200px;
+    margin-left: 50px;
+}
+.input>input{
+    width: 300px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.input>button{
+    border-radius: 3px;
+    background-color: red;
+}
+.input>button>a{
+    text-decoration: none;
+    color: white;
+}
+.input>button>a:hover{
+    color: black;
+}
+.input{
+    margin-right: 100px;
+    margin-left: 100px;
+}
+.dx input{
+    border-radius: 3px;
+    background-color: red;
+    margin-left: 20px;
+}
+.dx>a{
+    text-decoration: none;
+    color: white;
+}
+.dx>a:hover{
+    color: black;
+}
+
+.menu-ngang{
+    min-height: 50px;
+    background-color: rgb(247, 151, 151);
+    line-height: 50px;
+    border-bottom: 1px solid red;
+}
+.menu-ngang>ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    margin-left: 200px;
+    
+}
+.menu-ngang a{
+    text-decoration: none;
+    color: white;
+    margin-right: 50px;
+    display: inline-block;
+}
+.menu-ngang a:hover{
+    background-color: red;
+    color: black;
+}
+
+.menu-doc{
+    width: 250px;
+    background-color:rgb(245, 79, 79);
+    height: 230px;
+    border-top: 1px solid red;
+
+}
+.menu-doc ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.menu-doc a{
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+.menu-doc a:hover{
+    color: black;
+}
+.menu-doc li{
+    text-align: center;
+    height: 30px;
+    width: 250px;
+    line-height: 30px;
+}
+.menu-doc li:hover{
+    background-color: red;
+}
+.content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0px auto;
+    min-height: 100px;
+}
+.content-item{
+    width: 1200px;
+    min-height: 500px;
+}
+.noidung{
+    background-color:rgb(247, 151, 151) ;
+    
+    height: 400px;
+    text-align: center;
+    padding: 20px 20px;
+}
+
+
+.footer{
+    min-height: 50px;
+    border-top: 3px solid red;
+    text-align: center;
+
+}
